@@ -130,21 +130,33 @@
                                 </thead>
                                 <tbody>
                                     @foreach($reviews as $review)
-                                    <tr>
-                                        <td>{{ $review->id }}</td>
-                                        <td>{{ $review->name }}</td>
-                                        <td>{{ $review->email }}</td>
-                                        <td>{{ $review->rating }}</td>
-                                        <td>{{ Str::limit($review->isi_testimoni, 50) }}</td>
-                                        <td>
-                                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editReviewModal" data-id="{{ $review->id }}" data-name="{{ $review->name }}" data-email="{{ $review->email }}" data-rating="{{ $review->rating }}" data-content="{{ $review->isi_testimoni }}" data-photo="{{ $review->photo }}">Edit</button>
-                                            <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        @if($review->status)
+                                            <tr>
+                                                <td>{{ $review->id }}</td>
+                                                <td>{{ $review->name }}</td>
+                                                <td>{{ $review->email }}</td>
+                                                <td>{{ $review->rating }}</td>
+                                                <td>{{ Str::limit($review->isi_testimoni, 50) }}</td>
+                                                <td>
+                                                    <button class="btn btn-warning btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editReviewModal"
+                                                            data-id="{{ $review->id }}"
+                                                            data-name="{{ $review->name }}"
+                                                            data-email="{{ $review->email }}"
+                                                            data-rating="{{ $review->rating }}"
+                                                            data-content="{{ $review->isi_testimoni }}"
+                                                            data-photo="{{ $review->photo }}">
+                                                        Edit
+                                                    </button>
+                                                    <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
@@ -188,12 +200,20 @@
                             <label for="reviewPhoto" class="form-label">Photo</label>
                             <input type="file" class="form-control" id="reviewPhoto" name="photo">
                         </div>
+                        <div class="mb-3">
+                            <label for="reviewStatus" class="form-label">Status</label>
+                            <select class="form-select" id="reviewStatus" name="status" required>
+                                <option value="1">Publish</option>
+                                <option value="0">Unpublish</option>
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Edit Review Modal -->
     <div class="modal fade" id="editReviewModal" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
@@ -229,12 +249,20 @@
                             <input type="file" class="form-control" id="editReviewPhoto" name="photo">
                             <img id="currentPhoto" src="" alt="Current Photo" class="img-fluid mt-2">
                         </div>
+                        <div class="mb-3">
+                            <label for="editReviewStatus" class="form-label">Status</label>
+                            <select class="form-select" id="editReviewStatus" name="status" required>
+                                <option value="1">Publish</option>
+                                <option value="0">Unpublish</option>
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
