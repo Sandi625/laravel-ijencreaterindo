@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,14 +73,23 @@ Route::get('/review', function () {
 
 
 
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 
-Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');
+Route::get('/reviews', function () {
+    $reviews = App\Models\Review::all(); // Assuming your Review model is in App\Models
+    dd($reviews);
+})->name('page.review');
+
 
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('review.store');
 Route::put('/reviews/{review}', [TestimonialController::class, 'update'])->name('review.update');
 Route::delete('/reviews/{review}', [TestimonialController::class, 'destroy'])->name('review.destroy');
-// Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
+Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
+
+Route::resource('reviews', ReviewController::class);
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('page.review');
 
 
 // Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');

@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
-class TestimonialController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the reviews.
@@ -17,13 +16,10 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $data = Review::all();
+        $reviews = Review::all(); // Fixed variable name to be plural
 
-        return response()->view('page.review', compact('data'));
+        return response()->view('admin.dashboard', compact('reviews')); // Ensure the view name is correct
     }
-
-
-
 
     /**
      * Store a newly created review in storage.
@@ -31,27 +27,27 @@ class TestimonialController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->validate([
+        // Validasi data
+        $validated = $request->validate([
             'name' => 'required|string|max:100',
-            'email' => 'required|email|max:100',
+            'email' => 'required|string|max:100',
             'rating' => 'required|integer|between:1,5',
             'isi_testimoni' => 'required|string',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'nullable|image',
+            'status' => 'nullable|boolean',
         ]);
 
-        $data = $request->except('photo'); // Exclude 'photo' for conditional handling
-
-        $data['created_by'] = Auth::id(); // Set the creator's ID
-
+        // Menyimpan data ke database
+        $review = new Review($validated);
         if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('photos', 'public');
+            $review->photo = $request->file('photo')->store('photos', 'public');
         }
+        $review->save();
 
-        Review::create($data);
-
-        return redirect()->route('page.review')->with('success', 'Review created successfully.');
+        // Redirect ke halaman review
+        return redirect()->route('page.review')->with('success', 'Review berhasil dibuat.');
     }
 
 
