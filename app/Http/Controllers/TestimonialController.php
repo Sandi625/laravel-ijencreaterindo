@@ -15,13 +15,12 @@ class TestimonialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(): Response
+    public function index()
     {
-        $reviews = Review::all(); // Retrieve all review records
-        return response()->view('page.review', compact('reviews')); // Pass data to the view
+        $review = Review::all();
+
+        return response()->view('page.review', compact('review'));
     }
-
-
 
 
     /**

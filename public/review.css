@@ -313,7 +313,7 @@ section:last-of-type {
 }
 
 .footer__social:hover {
-    color: #007bff; 
+    color: #007bff;
 }
 
 .footer__item {
@@ -327,7 +327,7 @@ section:last-of-type {
 }
 
 .footer__link:hover {
-    color: #007bff; 
+    color: #007bff;
 }
 
 .footer__rights {
@@ -352,7 +352,7 @@ section:last-of-type {
 }
 
 .footer__terms-link:hover {
-    color: #007bff; 
+    color: #007bff;
 }
 
 
@@ -420,4 +420,142 @@ section:last-of-type {
 /* Hide pagination bullets */
 .swiper-pagination {
     display: none;
+}
+
+
+
+/* Combined CSS for Testimonials */
+.testimonial-section {
+    padding: 20px 0;
+    background-color: #f9f9f9;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.testimonial-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #ddd;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.testimonial-content h3 {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.swiper-container {
+    padding: 20px 0;
+}
+
+.review-section {
+padding: 40px 0;
+background-color: #f5f5f5;
+}
+
+.review-section h2 {
+text-align: center;
+margin-bottom: 20px;
+color: #333;
+}
+
+#review-form {
+max-width: 600px;
+margin: 0 auto;
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+margin-bottom: 15px;
+}
+
+.form-group label {
+display: block;
+font-weight: bold;
+margin-bottom: 5px;
+color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 1em;
+}
+
+.form-group textarea {
+resize: vertical;
+}
+
+.btn-submit {
+display: block;
+width: 100%;
+padding: 10px;
+background-color: #007BFF;
+color: #fff;
+font-size: 1.1em;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+background-color: #0056b3;
+}
+
+
+
+
+
+
+.testimonial-section {
+    padding: 20px 0;
+    background-color: #f9f9f9;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content {
+    text-align: center;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    color: #333;
+}
+
+.testimonial-content h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.swiper-container {
+    padding: 20px 0;
 }

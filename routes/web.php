@@ -79,6 +79,11 @@ Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.revi
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('review.store');
 Route::put('/reviews/{review}', [TestimonialController::class, 'update'])->name('review.update');
 Route::delete('/reviews/{review}', [TestimonialController::class, 'destroy'])->name('review.destroy');
+// Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
+
+
+// Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');
+
 
 
 
@@ -88,7 +93,24 @@ Route::delete('/reviews/{review}', [TestimonialController::class, 'destroy'])->n
 // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-Route::get('/login',[SesiController::class, 'index']);
+
+
+
+
+// Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+
+
+
+Route::middleware('guest')->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/login',[SesiController::class, 'index']);
 Route::post('/login', [SesiController::class, 'login']);
 
+});
+Route::get('/home', function(){
+    return redirect('/admin');
+});
+
 Route::get('/admin', [AdminController::class, 'index']);
+Route::post('/logout', [AdminController::class, 'logout'])->name('logout');

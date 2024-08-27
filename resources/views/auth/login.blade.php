@@ -37,8 +37,8 @@
                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
-        <p class="mb-0">
-            <a href="/register" class="text-center">Register a new membership</a>
+        {{-- <p class="mb-0">
+            <a href="/register" class="text-center">Register a new membership</a> --}}
     </div>
     </div>
 </body>

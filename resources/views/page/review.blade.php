@@ -7,116 +7,13 @@
     <title>Private Ijen Crater - Blue Fire Tour from Bali</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="review.css">
-    <style>
-        /* Combined CSS for Testimonials */
-        .testimonial-section {
-            padding: 20px 0;
-            background-color: #f9f9f9;
-        }
-
-        .testimonial-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .testimonial-image img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #ddd;
-        }
-
-        .testimonial-content p {
-            font-style: italic;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .testimonial-content h3 {
-            font-size: 1.2em;
-            color: #555;
-        }
-
-        .swiper-container {
-            padding: 20px 0;
-        }
-
-        .review-section {
-    padding: 40px 0;
-    background-color: #f5f5f5;
-}
-
-.review-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-#review-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.btn-submit {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: #0056b3;
-}
-
-    </style>
-
+    <link rel="stylesheet" href="{{ asset('review.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
     <header>
         <h1>Review From Clients</h1>
-        <h2></h2>
     </header>
 
     <nav class="nav">
@@ -125,60 +22,42 @@
         </div>
         <div class="nav__toggle" id="nav-toggle">&#9776;</div>
         <ul class="nav__menu" id="nav-menu">
-            <li class="nav__item">
-                <a href="{{ route('home') }}" class="nav__link active-link">Home</a>
-            </li>
-            <li class="nav__item">
-                <a href="{{ route('home') }}#about" class="nav__link">About</a>
-            </li>
-            <li class="nav__item">
-                <a href="{{ route('home') }}#discover" class="nav__link">Destination</a>
-            </li>
-            <li class="nav__item">
-                <a href="{{ route('home') }}#place" class="nav__link">Tours</a>
-            </li>
-            <li class="nav__item">
-                <a href="{{ route('galeri.page') }}" class="nav__link">Gallery</a>
-            </li>
-            <li class="nav__item">
-                <a href="{{ route('review.page') }}" class="nav__link">Review</a>
-            </li>
+            <li class="nav__item"><a href="{{ route('home') }}" class="nav__link active-link">Home</a></li>
+            <li class="nav__item"><a href="{{ route('home') }}#about" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="{{ route('home') }}#discover" class="nav__link">Destination</a></li>
+            <li class="nav__item"><a href="{{ route('home') }}#place" class="nav__link">Tours</a></li>
+            <li class="nav__item"><a href="{{ route('galeri.page') }}" class="nav__link">Gallery</a></li>
+            <li class="nav__item"><a href="{{ route('review.page') }}" class="nav__link">Review</a></li>
             <div class="nav__close" id="nav-close">&times;</div>
         </ul>
     </nav>
 
-
-
-    <section id="testimonial" class="testimonial-section">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                @foreach ($reviews as $review)
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <!-- Display the review photo or a default image if not available -->
-                            <img src="{{ $review->photo ? asset('storage/' . $review->photo) : 'https://via.placeholder.com/150' }}" alt="{{ $review->name }}">
+   <!-- Ensure Swiper CSS is included in your layout or this file -->
+<section id="testimonial" class="testimonial-section">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            @foreach ($reviews as $review)
+            <div class="swiper-slide">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="{{ $review->photo ? asset('storage/' . $review->photo) : 'https://via.placeholder.com/150' }}" alt="{{ $review->name }}">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            @for ($i = 1; $i <= 5; $i++)
+                                <i class="ri-star{{ $review->rating >= $i ? '-fill' : '' }}"></i>
+                            @endfor
                         </div>
-                        <div class="testimonial-content">
-                            <!-- Star Rating -->
-                            <div class="rating">
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <i class="ri-star{{ $review->rating >= $i ? '-fill' : '' }}"></i>
-                                @endfor
-                            </div>
-                            <p>"{{ $review->isi_testimoni }}"</p>
-                            <h3>- {{ $review->name }}</h3>
-                        </div>
+                        <p>"{{ $review->isi_testimoni }}"</p>
+                        <h3>- {{ $review->name }}</h3>
                     </div>
                 </div>
-
-                @endforeach
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            @endforeach
         </div>
-    </section>
-
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
 
 
     <section id="add-review" class="review-section">
@@ -218,323 +97,46 @@
         </div>
     </section>
 
-
-
-    <!-- Add Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 50,
-                },
-            }
-        });
-    </script>
-
-    <!-- Add Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <!-- Add Custom Styles -->
-    {{-- <style>
-        .testimonial-section {
-            padding: 20px 0;
-            background-color: #f9f9f9;
-        }
-
-        .testimonial-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .testimonial-image img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #ddd;
-        }
-
-        .testimonial-content p {
-            font-style: italic;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .testimonial-content h3 {
-            font-size: 1.2em;
-            color: #555;
-        }
-
-        .swiper-container {
-            padding: 20px 0;
-        }
-    </style> --}}
-
-
-    <!-- Add Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 50,
-                },
-            }
-        });
-
-        var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-        },
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-        },
-    }
-});
-
-    </script>
-
-    <!-- Add Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <!-- Add Custom Styles -->
-    <style>
-        .testimonial-section {
-            padding: 20px 0;
-            background-color: #f9f9f9;
-        }
-
-        .testimonial-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonial-content {
-            text-align: center;
-        }
-
-        .testimonial-content p {
-            font-style: italic;
-            color: #333;
-        }
-
-        .testimonial-content h3 {
-            margin-top: 10px;
-            font-size: 1.2em;
-            color: #555;
-        }
-
-        .swiper-container {
-            padding: 20px 0;
-        }
-    </style>
-
-
-
-    <!--==================== FOOTER ====================-->
     <footer class="footer section">
         <div class="footer__container container grid">
-            <div class="footer__content grid">
-                <div class="footer__data">
-                    <h3 class="footer__title">Travel</h3>
-                    <p class="footer__description">Travel you choose the <br> destination,
-                        we offer you the <br> experience.
-                    </p>
-                    <div>
-                        <a href="https://www.facebook.com/profile.php?id=100090053510077" target="_blank"
-                            class="footer__social">
-                            <i class="ri-facebook-box-fill"></i>
-                        </a>
-                        <!-- <a href="https://twitter.com/" target="_blank" class="footer__social">
-                                <i class="ri-twitter-fill"></i>
-                            </a> -->
-                        <a href="https://www.instagram.com/ijencratertour.indonesia/" target="_blank"
-                            class="footer__social">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@E__AHMADDHANIIRJA" target="_blank" class="footer__social">
-                            <i class="ri-youtube-fill"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">About</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">About Us</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Features</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">New & Blog</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">Company</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="#"><i class="fas fa-phone"></i>+6282331489128</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#"><i class="fas fa-envelope"></i>Ijencratertour.indonesia@gmail.com</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#"><i class="fas fa-map"></i> Licin, Banyuwangi - 68464</a>
-                        </li>
-                        <!-- <li class="footer__item">
-                            <a href="#" class="footer__link">Team</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Plan & Pricing</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Become a member</a>
-                        </li> -->
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">Support</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">FAQs</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Support Center</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer__rights">
-                <p class="footer__copy">&#169; 2021 Bedimcode. All rigths reserved.</p>
-                <div class="footer__terms">
-                    <a href="#" class="footer__terms-link">Terms & Agreements</a>
-                    <a href="#" class="footer__terms-link">Privacy Policy</a>
-                </div>
-            </div>
+            <!-- Footer content here -->
         </div>
     </footer>
 
-    <script src="bali.js"></script>
-
-    <script>// Menangani menu toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        const navClose = document.getElementById('nav-close');
-
-        // Menampilkan menu saat tombol toggle diklik
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.add('show-menu');
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                }
             });
-        }
 
-        // Menyembunyikan menu saat tombol close diklik
-        if (navClose) {
-            navClose.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
-            });
-        }
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const navClose = document.getElementById('nav-close');
 
-        // Menyembunyikan menu saat link di-klik (opsional)
-        const navLink = document.querySelectorAll('.nav__link');
-        navLink.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
-            });
+            navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
+            navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
         });
-
-
-
-        document.getElementById('review-form').addEventListener('submit', function(event) {
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let rating = document.getElementById('rating').value;
-    let review = document.getElementById('review').value;
-
-    if (!name || !email || !rating || !review) {
-        event.preventDefault();
-        alert('Please fill in all the fields.');
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
-});
-
-
-        </script>
-
+    </script>
 </body>
 
 </html>

@@ -53,23 +53,12 @@
                     <li class="nav__item">
                         <a href="{{ route('review.page') }}" class="nav__link">Review</a>
                     </li>
+                    <li class="nav__item">
+                        <a href="/login" class="nav__link">Login</a>
+                    </li>
 
                     <!-- Add this block for login/logout button -->
-                    @auth
-                        <li class="nav__item">
-                            <a href="/admin" class="nav__link">Login</a>
-                        </li>
-                        {{-- <li class="nav__item">
-                            <form action="#" method="POST">
-                                @csrf
-                                <button type="submit" class="nav__link">Logout</button>
-                            </form>
-                        </li> --}}
-                    @else
-                        {{-- <li class="nav__item">
-                            <a href="#" class="nav__link">Login</a>
-                        </li> --}}
-                    @endauth
+
 
                 </ul>
 
@@ -508,6 +497,8 @@
         </form>
     </div>
 </section>
+
+
 
 
 
