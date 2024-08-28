@@ -20,11 +20,13 @@ class TestimonialController extends Controller
 
 
      public function index()
-     {
-         $reviews = DB::table('reviews')->get();
-         dd($reviews);
-         return response()->view('page.review', ['reviews' => $reviews]);
-     }
+    {
+        // Ambil semua review dengan status true
+        $reviews = DB::table('reviews')->where('status', 1)->get();
+
+        // Kirimkan data reviews ke view 'page.review'
+        return view('page.review', ['reviews' => $reviews]);
+    }
 
 
 

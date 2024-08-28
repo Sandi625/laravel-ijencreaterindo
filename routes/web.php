@@ -56,9 +56,9 @@ Route::get('/galeri', function () {
     return view('page.galeri');
 })->name('galeri.page');
 
-// Route::get('/review', function () {
-//     return view('page.review');
-// })->name('review.page');
+Route::get('/reviews', function () {
+    return view('page.review');
+})->name('reviews.page');
 
 
 Route::get('/', function () {
@@ -73,34 +73,28 @@ Route::get('/galeri', function () {
 //     return view('page.review');
 // })->name('review.page');
 
+// Route::get('/review', [TestimonialController::class, 'index'])->name('review.index');
 
+Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 
-// Route::get('/reviews', function () {
-//     $reviews = App\Models\Review::all(); // Assuming your Review model is in App\Models
-//     dd($reviews);
-// })->name('page.review');
+
 
 
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('review.store');
 Route::put('/reviews/{review}', [TestimonialController::class, 'update'])->name('review.update');
 Route::delete('/reviews/{review}', [TestimonialController::class, 'destroy'])->name('review.destroy');
-// Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
+Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');
 
-// Route::resource('reviews', ReviewController::class);
-
-// Route::get('/reviews', [ReviewController::class, 'index'])->name('page.review');
-
-// Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
-
-// Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');
 
 
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('review.store');
-// Route::get('/review', [TestimonialController::class, 'index'])->name('page.review');
+// Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');
 
+// Route untuk halaman review
+Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');
 
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('reviews.store');
 Route::post('/review', [TestimonialController::class, 'store'])->name('review.store');

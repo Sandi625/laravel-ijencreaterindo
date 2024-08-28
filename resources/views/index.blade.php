@@ -51,7 +51,7 @@
                         <a href="{{ route('galeri.page') }}" class="nav__link">Gallery</a>
                     </li>
                     <li class="nav__item">
-                        <a href="{{ route('review.page') }}" class="nav__link">Review</a>
+                        <a href="{{ route('page.review') }}" class="nav__link">Review</a>
                     </li>
                     <li class="nav__item">
                         <a href="/login" class="nav__link">Login</a>

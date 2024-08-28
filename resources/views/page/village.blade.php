@@ -49,7 +49,7 @@
                 <a href="{{ route('galeri.page') }}" class="nav__link">Gallery</a>
             </li>
             <li class="nav__item">
-                <a href="{{ route('review.page') }}" class="nav__link">Review</a>
+                <a href="{{ route('page.review') }}" class="nav__link">Review</a>
             </li>
             <div class="nav__close" id="nav-close">&times;</div>
         </ul>
@@ -261,7 +261,7 @@
             </div>
 
             <div class="footer__rights">
-                <p class="footer__copy">&#169; 2021 Bedimcode. All rigths reserved.</p>
+                <p class="footer__copy">&#169; Ijen Creater Indonesia All rigths reserved.</p>
                 <div class="footer__terms">
                     <a href="#" class="footer__terms-link">Terms & Agreements</a>
                     <a href="#" class="footer__terms-link">Privacy Policy</a>
