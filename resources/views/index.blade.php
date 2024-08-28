@@ -508,7 +508,7 @@
                 <div class="sponsor__content">
                     <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
                 </div>
-                <div class="sponsor__content">
+                {{-- <div class="sponsor__content">
                     <img src="assets/img/sponsors2.png" alt="" class="sponsor__img">
                 </div>
                 <div class="sponsor__content">
@@ -519,9 +519,14 @@
                 </div>
                 <div class="sponsor__content">
                     <img src="assets/img/sponsors5.png" alt="" class="sponsor__img">
+                </div> --}}
+                <!-- New TripAdvisor Sponsor -->
+                <div class="sponsor__content">
+                    <img src="assets/img/tt.png" alt="TripAdvisor" class="sponsor__img">
                 </div>
             </div>
         </section>
+
 
 
         <!--==================== MAPS ====================-->
