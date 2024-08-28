@@ -58,8 +58,9 @@ class TestimonialController extends Controller
 
         Review::create($data);
 
-        return redirect()->route('page.review')->with('success', 'Review created successfully.');
+        return back()->with('success', 'Review created successfully.');
     }
+
 
 
     /**
