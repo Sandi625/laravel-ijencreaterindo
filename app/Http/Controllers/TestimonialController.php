@@ -21,12 +21,12 @@ class TestimonialController extends Controller
 
      public function index()
      {
-         // Retrieve all reviews using Query Builder
-         $data = DB::table('reviews')->get();
-
-         // Pass the $data variable to the view
-         return response()->view('page.review', compact('data'));
+         $reviews = DB::table('reviews')->get();
+         dd($reviews);
+         return response()->view('page.review', ['reviews' => $reviews]);
      }
+
+
 
 
 
@@ -94,7 +94,7 @@ class TestimonialController extends Controller
 
         $review->update($data);
 
-        return redirect()->route('page.review')->with('success', 'Review updated successfully.');
+        return back()->with('success', 'Review edit successfully.');
     }
 
     /**
@@ -112,6 +112,6 @@ class TestimonialController extends Controller
 
         $review->delete();
 
-        return redirect()->route('page.review')->with('success', 'Review deleted successfully.');
+        return back()->with('success', 'Review delete successfully.');
     }
 }

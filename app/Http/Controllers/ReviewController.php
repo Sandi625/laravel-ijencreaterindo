@@ -83,7 +83,7 @@ class ReviewController extends Controller
 
         $review->update($data);
 
-        return redirect()->route('page.review')->with('success', 'Review updated successfully.');
+        return back()->with('success', 'Review update successfully.');
     }
 
     /**
@@ -103,7 +103,7 @@ class ReviewController extends Controller
         $review->delete();
 
         // Redirect with a success message
-        return redirect()->route('page.review')->with('success', 'Review deleted successfully.');
+        return back()->with('success', 'Review delete successfully.');
     }
 
 

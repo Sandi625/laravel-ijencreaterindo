@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Models\Review;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CobaController;
 use App\Http\Controllers\SesiController;
-use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,9 +56,9 @@ Route::get('/galeri', function () {
     return view('page.galeri');
 })->name('galeri.page');
 
-Route::get('/review', function () {
-    return view('page.review');
-})->name('review.page');
+// Route::get('/review', function () {
+//     return view('page.review');
+// })->name('review.page');
 
 
 Route::get('/', function () {
@@ -67,29 +69,29 @@ Route::get('/galeri', function () {
     return view('page.galeri');
 })->name('galeri.page');
 
-Route::get('/review', function () {
-    return view('page.review');
-})->name('review.page');
+// Route::get('/review', function () {
+//     return view('page.review');
+// })->name('review.page');
 
 
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 
-Route::get('/reviews', function () {
-    $reviews = App\Models\Review::all(); // Assuming your Review model is in App\Models
-    dd($reviews);
-})->name('page.review');
+// Route::get('/reviews', function () {
+//     $reviews = App\Models\Review::all(); // Assuming your Review model is in App\Models
+//     dd($reviews);
+// })->name('page.review');
 
 
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('review.store');
 Route::put('/reviews/{review}', [TestimonialController::class, 'update'])->name('review.update');
 Route::delete('/reviews/{review}', [TestimonialController::class, 'destroy'])->name('review.destroy');
-Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
+// Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
 
-Route::resource('reviews', ReviewController::class);
+// Route::resource('reviews', ReviewController::class);
 
-Route::get('/reviews', [ReviewController::class, 'index'])->name('page.review');
+// Route::get('/reviews', [ReviewController::class, 'index'])->name('page.review');
 
 // Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
 
@@ -97,11 +99,20 @@ Route::get('/reviews', [ReviewController::class, 'index'])->name('page.review');
 
 
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('review.store');
+// Route::get('/review', [TestimonialController::class, 'index'])->name('page.review');
+
 
 Route::post('/reviews', [TestimonialController::class, 'store'])->name('reviews.store');
 Route::post('/review', [TestimonialController::class, 'store'])->name('review.store');
 Route::get('/admin/dashboard', [ReviewController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/dashboard', [ReviewController::class, 'index'])->name('admin.dashboard');
+
+
+
+
+
+
+
 
 
 

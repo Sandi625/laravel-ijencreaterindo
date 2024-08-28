@@ -48,10 +48,15 @@
 
 
 
-    {{-- <section id="testimonial" class="testimonial-section">
+
+
+
+
+    <section id="testimonial" class="testimonial-section">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                @foreach ($data as $review)
+                @dd($reviews)
+                @foreach ($reviews as $review)
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="testimonial-image">
@@ -72,7 +77,8 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
-    </section> --}}
+    </section>
+
 
 
 
