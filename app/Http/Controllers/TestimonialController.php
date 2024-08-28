@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
@@ -15,12 +17,17 @@ class TestimonialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $data = Review::all();
 
-        return response()->view('page.review', compact('data'));
-    }
+
+     public function index()
+     {
+         // Retrieve all reviews using Query Builder
+         $data = DB::table('reviews')->get();
+
+         // Pass the $data variable to the view
+         return response()->view('page.review', compact('data'));
+     }
+
 
 
 

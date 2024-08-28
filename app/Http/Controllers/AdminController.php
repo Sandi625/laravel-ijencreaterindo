@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -10,14 +12,16 @@ class AdminController extends Controller
         // Ensure the user is authenticated
         if (Auth::check()) {
             $user = Auth::user();
+            $reviews = Review::all(); // Retrieve all reviews
 
-            // Pass the user to the view if needed
-            return view('admin.dashboard', compact('user'));
+            // Pass both 'reviews' and 'user' to the view
+            return response()->view('admin.dashboard', compact('reviews', 'user'));
         } else {
-            // Redirect to login page or show an error if not authenticated
+            // Redirect to the login page if not authenticated
             return redirect()->route('login')->with('error', 'You must be logged in to access this page.');
         }
     }
+
 
     public function logout(Request $request) {
         Auth::logout(); // Log out the user

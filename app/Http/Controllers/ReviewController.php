@@ -16,10 +16,11 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::all(); // Fixed variable name to be plural
-
-        return response()->view('admin.dashboard', compact('reviews')); // Ensure the view name is correct
+        $reviews = Review::all(); // Retrieve all reviews
+        return response()->view('admin.dashboard', compact('reviews'));
     }
+
+
 
     /**
      * Store a newly created review in storage.
@@ -93,13 +94,17 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review): RedirectResponse
     {
-        // Delete the photo if exists
+        // Delete the photo if it exists
         if ($review->photo && file_exists(storage_path('app/public/' . $review->photo))) {
             unlink(storage_path('app/public/' . $review->photo));
         }
 
+        // Delete the review
         $review->delete();
 
+        // Redirect with a success message
         return redirect()->route('page.review')->with('success', 'Review deleted successfully.');
     }
+
+
 }

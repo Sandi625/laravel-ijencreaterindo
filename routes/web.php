@@ -91,9 +91,17 @@ Route::resource('reviews', ReviewController::class);
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('page.review');
 
+// Route::get('/reviews', [TestimonialController::class, 'index'])->name('reviews.index');
 
 // Route::get('/reviews', [TestimonialController::class, 'index'])->name('page.review');
 
+
+Route::post('/reviews', [TestimonialController::class, 'store'])->name('review.store');
+
+Route::post('/reviews', [TestimonialController::class, 'store'])->name('reviews.store');
+Route::post('/review', [TestimonialController::class, 'store'])->name('review.store');
+Route::get('/admin/dashboard', [ReviewController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [ReviewController::class, 'index'])->name('admin.dashboard');
 
 
 
@@ -103,7 +111,7 @@ Route::get('/reviews', [ReviewController::class, 'index'])->name('page.review');
 // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-
+Route::delete('/reviews/{review}', [TestimonialController::class, 'destroy'])->name('reviews.destroy');
 
 
 
