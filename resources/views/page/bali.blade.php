@@ -17,6 +17,20 @@
         section:last-of-type {
             border-bottom: none;
         }
+        .whatsapp-button {
+    background-color: #45a049;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;  /* Ubah menjadi block untuk margin auto */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px 24px;
+    margin: 0 auto;  /* Margin auto untuk memposisikan di tengah */
+}
+
     </style>
 </head>
 
@@ -58,6 +72,10 @@
     <section class="hero">
         <!-- <h2>Discover the Magnificent Ijen Crater</h2> -->
     </section>
+    <div class="center">
+        <button class="whatsapp-button" onclick="redirectToWhatsApp()">Booking Now</button>
+    </div>
+
 
     <div class="container">
         <section class="content">
@@ -309,7 +327,21 @@
                 navMenu.classList.remove('show-menu');
             });
         });
+
+
+
+        function redirectToWhatsApp() {
+    // Nomor WhatsApp bisnis dan pesan prateks
+    var phoneNumber = '+6282331489128';
+    var message = encodeURIComponent('Hello, I want to book the Blue Fire Tour from Bali.');
+
+    // Buka tautan ke WhatsApp dengan nomor dan pesan prateks
+    window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
+}
+
         </script>
+
+
 
 </body>
 
