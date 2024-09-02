@@ -56,7 +56,7 @@ const videoFile = document.getElementById('video-file'),
       videoButton = document.getElementById('video-button'),
       videoIcon = document.getElementById('video-icon')
 
-function playPause(){ 
+function playPause(){
     if (videoFile.paused){
         // Play video
         videoFile.play()
@@ -66,7 +66,7 @@ function playPause(){
     }
     else {
         // Pause video
-        videoFile.pause(); 
+        videoFile.pause();
         // We change the icon
         videoIcon.classList.remove('ri-pause-line')
         videoIcon.classList.add('ri-play-line')
@@ -84,7 +84,7 @@ function finalVideo(){
 videoFile.addEventListener('ended', finalVideo)
 
 
-/*==================== SHOW SCROLL UP ====================*/ 
+/*==================== SHOW SCROLL UP ====================*/
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
     // When the scroll is higher than 200 viewport height, add the show-scroll class to the a tag with the scroll-top class
@@ -130,20 +130,20 @@ sr.reveal(`.home__data, .home__social-link, .home__info,
     interval: 100,
 })
 
-sr.reveal(`.about__data, 
+sr.reveal(`.about__data,
            .video__description,
            .subscribe__description`,{
     origin: 'left',
 })
 
-sr.reveal(`.about__img-overlay, 
+sr.reveal(`.about__img-overlay,
            .video__content,
            .subscribe__form`,{
     origin: 'right',
     interval: 100,
 })
 
-/*==================== DARK LIGHT THEME ====================*/ 
+/*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
 const iconTheme = 'ri-sun-line'
@@ -184,6 +184,8 @@ function redirectToWhatsApp() {
 
 
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     var shopSwiper = new Swiper('.shop-swiper-container', {
       loop: true,
@@ -202,5 +204,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  
-  
+
+

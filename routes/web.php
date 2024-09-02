@@ -50,6 +50,9 @@ Route::get('/village', function () {
     return view('page.village');
 })->name('village.page');
 
+Route::get('/tourvillage2', function () {
+    return view('page.tourvillage2');
+})->name('tourvillage2.page');
 
 
 Route::get('/galeri', function () {
@@ -68,6 +71,10 @@ Route::get('/', function () {
 Route::get('/galeri', function () {
     return view('page.galeri');
 })->name('galeri.page');
+
+Route::get('/option', function () {
+    return view('page.option');
+})->name('option.page');
 
 // Route::get('/review', function () {
 //     return view('page.review');

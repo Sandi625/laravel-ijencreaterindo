@@ -32,11 +32,15 @@ class SesiController extends Controller
                 return redirect('admin');
 
             } elseif (Auth::user()->role == 'keuangan') {
-                return redirect('admin/keuangan');
+                return redirect('admin');
 
             } elseif (Auth::user()->role == 'marketing') {
-                return redirect('/dashboard');
+                return redirect('admin');
+
+            } elseif (Auth::user()->role == 'admin') {
+                return redirect('admin');
             }
+
         } else {
             return redirect('')->withErrors('username dan password yang dimakssukan tidak sesuai')->withInput();
         }

@@ -23,13 +23,16 @@
     color: white;
     text-align: center;
     text-decoration: none;
-    display: block;  /* Ubah menjadi block untuk margin auto */
+    display: block; /* Ensure the button is treated as a block element */
     font-size: 16px;
     cursor: pointer;
     border-radius: 10px;
     padding: 10px 24px;
-    margin: 0 auto;  /* Margin auto untuk memposisikan di tengah */
+    margin: 10px auto; /* Use margin auto for centering and add top-bottom margin */
+    max-width: 200px; /* Optional: limit the button's width */
 }
+
+
 
     </style>
 </head>
@@ -73,8 +76,11 @@
         <!-- <h2>Discover the Magnificent Ijen Crater</h2> -->
     </section>
     <div class="center">
-        <button class="whatsapp-button" onclick="redirectToWhatsApp()">Booking Now</button>
+        <button class="whatsapp-button" onclick="redirectToWhatsApp('+6282331489128')">Contact Admin 1</button>
+        <button class="whatsapp-button" onclick="redirectToWhatsApp('+6282132662815')">Contact Admin 2</button>
+        <button class="whatsapp-button" onclick="redirectToWhatsApp('+6281381117555')">Contact Admin 3</button>
     </div>
+
 
 
     <div class="container">
@@ -253,7 +259,19 @@
                     <h3 class="footer__subtitle">Company</h3>
                     <ul>
                         <li class="footer__item">
-                            <a href="#"><i class="fas fa-phone"></i>+6282331489128</a>
+                            <a href="https://wa.me/+6282331489128?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6282331489128
+                            </a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="https://wa.me/+6282132662815?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6282132662815
+                            </a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="https://wa.me/+6281381117555?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6281381117555
+                            </a>
                         </li>
                         <li class="footer__item">
                             <a href="#"><i class="fas fa-envelope"></i>Ijencratertour.indonesia@gmail.com</a>
@@ -330,14 +348,14 @@
 
 
 
-        function redirectToWhatsApp() {
-    // Nomor WhatsApp bisnis dan pesan prateks
-    var phoneNumber = '+6282331489128';
+        function redirectToWhatsApp(phoneNumber) {
+    // Pesan prateks
     var message = encodeURIComponent('Hello, I want to book the Blue Fire Tour from Bali.');
 
     // Buka tautan ke WhatsApp dengan nomor dan pesan prateks
     window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
 }
+
 
         </script>
 

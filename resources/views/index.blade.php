@@ -80,25 +80,25 @@
     <main class="main">
         <!--==================== HOME ====================-->
         <section class="home" id="home">
-            <img src="{{ asset('assets/img/nusa_penida.jpg') }}" alt="" class="home__img">
+            <img src="{{ asset('assets/img/1ijen.jpg') }}" alt="" class="home__img">
 
             <div class="home__container container grid">
                 <div class="home__data">
                     <span class="home__data-subtitle">Discover your place</span>
-                    <h1 class="home__data-title">Explore The <br> Best <b>Beautiful <br> Beaches And Mountain</b></h1>
-                    <a href="#" class="button">Explore</a>
+                    <h1 class="home__data-title">Explore The <br> Best <b>Beautiful <br> Mountain And Beaches </b></h1>
+                    <a href="#about" class="button">Explore</a>
                 </div>
 
                 <div class="home__social">
-                    <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                    <a href="https://www.facebook.com/profile.php?id=100090053510077" target="_blank" class="home__social-link">
                         <i class="ri-facebook-box-fill"></i>
                     </a>
-                    <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                    <a href="https://www.instagram.com/ijencratertour.indonesia/" target="_blank" class="home__social-link">
                         <i class="ri-instagram-fill"></i>
                     </a>
-                    <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                    {{-- <a href="https://twitter.com/" target="_blank" class="home__social-link">
                         <i class="ri-twitter-fill"></i>
-                    </a>
+                    </a> --}}
                 </div>
 
                 <div class="home__info">
@@ -136,7 +136,7 @@
                     <p class="about__description">
                         <!-- Tour Village !! Provide an immersive experience of the life and culture of a village. This tour combines natural exploration, interaction with local residents, and participation in traditional activities. Exploring a tour village is an ideal way to experience authentic village life, learn from local culture, and enjoy the beauty of nature while interacting directly with the local community. -->
                     </p>
-                    <a href="#" class="button">Reserve a place</a>
+                    <a href="#place" class="button">Reserve a place</a>
                 </div>
 
                 <div class="about__img">
@@ -221,7 +221,7 @@
                                     <div class="shop-card__content card-body">
                                         <h5 class="shop-card__title card-title">Mountain Jacket</h5>
                                         <p class="shop-card__description">Stay warm and protected with our mountain jacket. Featuring a weather-resistant design, it’s ideal for rugged outdoor adventures.</p>
-                                        <a href="#" class="shop-card__button btn btn-primary">Learn More</a>
+                                        {{-- <a href="#" class="shop-card__button btn btn-primary">Learn More</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +232,7 @@
                                     <div class="shop-card__content card-body">
                                         <h5 class="shop-card__title card-title">Stylish Beanie</h5>
                                         <p class="shop-card__description">Keep warm and look stylish with our premium beanie. Made from soft, high-quality fabric, this beanie is perfect for any season.</p>
-                                        <a href="#" class="shop-card__button btn btn-primary">Learn More</a>
+                                        {{-- <a href="#" class="shop-card__button btn btn-primary">Learn More</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                                     <div class="shop-card__content card-body">
                                         <h5 class="shop-card__title card-title">Hiking Stick</h5>
                                         <p class="shop-card__description">Enhance your hiking experience with our durable hiking stick. Designed for comfort and support, it’s perfect for any trail.</p>
-                                        <a href="#" class="shop-card__button btn btn-primary">Learn More</a>
+                                        {{-- <a href="#" class="shop-card__button btn btn-primary">Learn More</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -256,7 +256,7 @@
                                     <div class="shop-card__content card-body">
                                         <h5 class="shop-card__title card-title">Gas Mask</h5>
                                         <p class="shop-card__description">Stay safe in challenging environments with our high-quality gas mask. Designed for protection and comfort, it’s essential for any serious adventurer.</p>
-                                        <a href="#" class="shop-card__button btn btn-primary">Learn More</a>
+                                        {{-- <a href="#" class="shop-card__button btn btn-primary">Learn More</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -445,7 +445,7 @@
 
                 <!--==================== PLACES CARD 5 ====================-->
                 <div class="place__card">
-                    <a href="{{ route('village.page') }}" class="place__link">
+                    <a href="{{ route('option.page') }}" class="place__link">
                         <img src="{{ asset('assets/img/bule5.jpg') }}" alt="Village Tour" class="place__img">
                         <div class="place__content">
                             <span class="place__rating">
@@ -470,7 +470,7 @@
 
 
         <!--==================== EMAIL ====================-->
-<section class="section">
+{{-- <section class="section">
     <div class="card email-card">
         <form method="post" action="https://formspree.io/f/xknlyagv">
             <h1 class="heading">Contact us via Email</h1>
@@ -496,7 +496,7 @@
             </div>
         </form>
     </div>
-</section>
+</section> --}}
 
 
 
@@ -592,8 +592,21 @@
                     <h3 class="footer__subtitle">Contact</h3>
                     <ul>
                         <li class="footer__item">
-                            <a href="#"><i class="fas fa-phone"></i>+6282331489128</a>
+                            <a href="https://wa.me/+6282331489128?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6282331489128
+                            </a>
                         </li>
+                        <li class="footer__item">
+                            <a href="https://wa.me/+6282132662815?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6282132662815
+                            </a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="https://wa.me/+6281381117555?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6281381117555
+                            </a>
+                        </li>
+
                         <li class="footer__item">
                             <a href="#"><i class="fas fa-envelope"></i>Ijencratertour.indonesia@gmail.com</a>
                         </li>
@@ -630,7 +643,7 @@
             </div>
 
             <div class="footer__rights">
-                <p class="footer__copy">&#169; AutoCrat.id. All rigths reserved.</p>
+                <p class="footer__copy">&#169; Ijen Creater Indonesia All rigths reserved.</p>
                 <div class="footer__terms">
                     <a href="#" class="footer__terms-link">Terms & Agreements</a>
                     <a href="#" class="footer__terms-link">Privacy Policy</a>

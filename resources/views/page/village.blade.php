@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Ijen Crater - Blue Fire Tour from Bali</title>
+    <title>Tour Village</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('village.css') }}">
@@ -24,19 +24,20 @@
     color: white;
     text-align: center;
     text-decoration: none;
-    display: block;  /* Ubah menjadi block untuk margin auto */
+    display: block; /* Ensure the button is treated as a block element */
     font-size: 16px;
     cursor: pointer;
     border-radius: 10px;
     padding: 10px 24px;
-    margin: 0 auto;  /* Margin auto untuk memposisikan di tengah */
+    margin: 10px auto; /* Use margin auto for centering and add top-bottom margin */
+    max-width: 200px; /* Optional: limit the button's width */
 }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Licin Tourist Village in Banyuwang</h1>
+        <h1>Licin Tourist Village in Banyuwangi</h1>
         {{-- <h2>2 Day 1 Night</h2> --}}
     </header>
 
@@ -73,7 +74,9 @@
         <!-- <h2>Discover the Magnificent Ijen Crater</h2> -->
     </section>
     <div class="center">
-        <button class="whatsapp-button" onclick="redirectToWhatsApp()">Booking Now</button>
+        <button class="whatsapp-button" onclick="redirectToWhatsApp('+6282331489128')">Contact Admin 1</button>
+        <button class="whatsapp-button" onclick="redirectToWhatsApp('+6282132662815')">Contact Admin 2</button>
+        <button class="whatsapp-button" onclick="redirectToWhatsApp('+6281381117555')">Contact Admin 3</button>
     </div>
 
     <div class="container">
@@ -96,7 +99,7 @@
             <ul>
                 <li><strong>Tour Package:</strong> "A Day in the Serene Village"</li>
                 <li><strong>Duration:</strong> 1 Day</li>
-                <li><strong>Price:</strong> Rp 300,000/person (minimum 5 people)</li>
+
             </ul>
         </section>
 
@@ -240,7 +243,19 @@
                     <h3 class="footer__subtitle">Company</h3>
                     <ul>
                         <li class="footer__item">
-                            <a href="#"><i class="fas fa-phone"></i>+6282331489128</a>
+                            <a href="https://wa.me/+6282331489128?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6282331489128
+                            </a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="https://wa.me/+6282132662815?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6282132662815
+                            </a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="https://wa.me/+6281381117555?text=Hello!%20I%20would%20like%20to%20get%20in%20touch." target="_blank">
+                                <i class="fab fa-whatsapp"></i> +6281381117555
+                            </a>
                         </li>
                         <li class="footer__item">
                             <a href="#"><i class="fas fa-envelope"></i>Ijencratertour.indonesia@gmail.com</a>
@@ -315,9 +330,8 @@
             });
         });
 
-        function redirectToWhatsApp() {
-    // Nomor WhatsApp bisnis dan pesan prateks
-    var phoneNumber = '+6282331489128';
+        function redirectToWhatsApp(phoneNumber) {
+    // Pesan prateks
     var message = encodeURIComponent('Hello, I want to book the Village Tour.');
 
     // Buka tautan ke WhatsApp dengan nomor dan pesan prateks

@@ -137,7 +137,7 @@
                                                 <td>{{ $review->name }}</td>
                                                 <td>{{ $review->email }}</td>
                                                 <td>{{ $review->rating }}</td>
-                                                <td>{{ Str::limit($review->isi_testimoni, 50) }}</td>
+                                                <td>{{ $review->isi_testimoni }}</td> <!-- Display the full content here -->
                                                 <td>
                                                     <!-- Edit Button -->
                                                     <button class="btn btn-warning btn-sm"
@@ -158,18 +158,17 @@
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm delete-btn">Delete</button>
                                                     </form>
-
                                                 </td>
                                             </tr>
                                         {{-- @endif --}}
                                     @endforeach
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Other Sections -->
         </div>

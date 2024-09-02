@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Ijen Crater - Blue Fire Tour from Bali</title>
+    <title>Tour Village</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="baluran-tabuhan.css">
+    <link rel="stylesheet" href="{{ asset('village2.css') }}">
+
     <style>
         /* Add CSS for thicker horizontal lines between sections */
         section {
@@ -36,8 +37,8 @@
 
 <body>
     <header>
-        <h1>EXPLORE TAMAN NASIONAL BALURAN & PULAU TABUHAN</h1>
-        <h2>1 Day explore Banyuwangi</h2>
+        <h1>Licin Tourist Village in Banyuwangi with bicyle</h1>
+        {{-- <h2>2 Day 1 Night</h2> --}}
     </header>
 
     <nav class="nav">
@@ -68,10 +69,10 @@
         </ul>
     </nav>
 
+
     <section class="hero">
         <!-- <h2>Discover the Magnificent Ijen Crater</h2> -->
     </section>
-
     <div class="center">
         <button class="whatsapp-button" onclick="redirectToWhatsApp('+6282331489128')">Contact Admin 1</button>
         <button class="whatsapp-button" onclick="redirectToWhatsApp('+6282132662815')">Contact Admin 2</button>
@@ -81,31 +82,44 @@
     <div class="container">
         <section class="content">
             <h3>Tour Description</h3>
-            <p>Baluran National Park, often referred to as "Little Africa in Java," is one of the largest and most beautiful national parks in Indonesia, located in Situbondo Regency in the eastern part of Java Island. The park features a variety of ecosystems, from savannahs and mangrove forests to coastal forests. Baluran is home to a rich diversity of plants and wildlife, including the rare Javanese bull. Visitors can explore the park and witness wildlife in their natural habitat. Additionally, the park offers stunning views of sunrise and sunset, with the expansive savannah providing a perfect backdrop.</p>
-
-            <p>Tabuhan Island is a small, uninhabited island located in the Bali Strait, about 20 kilometers from the city center of Banyuwangi. Known for its pristine natural beauty, Tabuhan Island is a popular destination for divers and water sports enthusiasts. The island features beautiful coral reefs teeming with marine life. Snorkeling and diving here reveal a vibrant underwater world, home to various tropical and coral fish. Together, Baluran National Park and Tabuhan Island offer a diverse and breathtaking travel experience, from the savannah's beauty and wildlife to the beach's splendor and underwater biodiversity.</p>
+            <p>
+                Licin Tourist Village in Banyuwangi is an attractive destination that blends natural beauty, culture, and local traditions. Located at the foot of Mount Ijen, about 20 kilometers from the city center, this village offers cool air and stunning natural scenery.
+            </p>
+            <p>
+                Visitors can engage in various community activities and enjoy traditional arts such as the Gandrung dance and local music, as well as participate in farming and traditional crafts like pottery making. One of the highlights of the tour is exploring the village and its surroundings by bicycle, allowing tourists to experience the local landscape and daily life in a unique and immersive way. Licin Village also serves as an ideal gateway to the Ijen Crater, making it a perfect place to stay before hiking the mountain.
+            </p>
+            <p>
+                Traditional accommodations run by local residents allow tourists to experience authentic village life and connect with the local community.
+            </p>
         </section>
+
+
 
         <section class="tour-details">
-            <h3>EXPLORE DJAWATAN & PANTAI PULAU MERAH</h3>
+            <h3>Sample Tour Package: "Village Experience Tour"</h3>
             <ul>
-                <li><strong>Private Tour:</strong> Only you and your group will participate on this trip.</li>
-                <li><strong>Duration:</strong> 1 day</li>
-                <li><strong>Departure and return location : </strong>Start & finish at Lodgings</li>
+                <li><strong>Tour Package:</strong> "A Day in the Serene Village"</li>
+                <li><strong>Duration:</strong> 1 Day</li>
+
             </ul>
         </section>
+
 
         <section class="highlights">
             <h3>Highlights</h3>
             <ul>
-                <li><strong>Explore the vast savannahs of Baluran National Park, often called "Little Africa in Java," and witness its diverse ecosystems.</strong></li>
-                <li><strong>Encounter a variety of wildlife, including the rare Javanese bull, as you traverse through Baluran's rich habitats.</strong></li>
-                <li><strong>Marvel at the stunning sunrise and sunset views over the expansive savannahs of Baluran National Park.</strong></li>
-                <li><strong>Relax on Tabuhan Island’s pristine beaches, with soft white sands and crystal-clear waters ideal for swimming and sunbathing.</strong></li>
-                <li><strong>Snorkel or dive in the vibrant coral reefs around Tabuhan Island, discovering a colorful underwater world filled with marine life.</strong></li>
-                <li><strong>Enjoy a day of diverse natural beauty, from the savannahs and wildlife of Baluran to the unspoiled beaches and marine wonders of Tabuhan Island.</strong></li>
+                <li><strong>An authentic and immersive experience with the village community.</strong></li>
+                <li><strong>Combines educational and recreational activities.</strong></li>
+                <li><strong>Provides a direct positive impact on the local economy.</strong></li>
+                <li><strong>Experience the tranquility and beauty of Licin Village, nestled at the foot of Mount Ijen.</strong></li>
+                <li><strong>Engage in traditional village activities such as farming, pottery making, and participating in local arts like the Gandrung dance.</strong></li>
+                <li><strong>Connect with the local community and experience authentic village life through homestays.</strong></li>
+                <li><strong>Explore the stunning natural landscapes surrounding the village, including lush greenery and cool mountain air.</strong></li>
+                <li><strong>Use Licin Village as a gateway to the famous Ijen Crater, making it a perfect base for your adventure.</strong></li>
+                <li><strong>Discover the village and its picturesque surroundings on bicycle, providing a unique and enjoyable way to explore the area.</strong></li>
             </ul>
         </section>
+
 
 
 
@@ -122,27 +136,25 @@
         </section> -->
 
         <section class="price-details" style="text-align: left;">
-            <h3>Included Packages</h3>
+            <h3>Included Facilities:</h3>
             <ul>
-                <li>Tickets to Djawatan & Pulau Merah</li>
-                <li>Parking during the trip</li>
-                <li>Photo documentation</li>
-                <li>Private land transportation</li>
-                <li>Private local guide</li>
-                <li>Mineral water</li>
+                <li>Local transportation (pick-up & drop-off)</li>
+                <li>Traditional lunch</li>
+                <li>Experienced local guide</li>
+                <li>All materials for the handicraft workshop</li>
+                <li>Admission tickets to tourist spots</li>
+                <li>Documentation (photos and videos)</li>
             </ul>
 
-            <h3>Excluded Packages</h3>
+            <h3>Notes:</h3>
             <ul>
-                <li>Travel insurance</li>
-                <li>Meals (lunch and dinner)</li>
-                <li>Personal expenses during the trip</li>
-                <li>Guide & driver service tip</li>
+                <li>It is recommended to bring a change of clothes and a towel for activities at the waterfall.</li>
+                <li>This tour is suitable for all ages and can be customized to the group’s needs.</li>
             </ul>
         </section>
 
 
-        <section class="trip-info" style="text-align: left;">
+        {{-- <section class="trip-info" style="text-align: left;">
             <h3>THE INFORMATION ABOUT THE TRIP</h3>
 
             <h4>The things that you should bring during the trip:</h4>
@@ -168,21 +180,23 @@
                 <li>Other conditions may apply as per standard tour rules</li>
                 <li>Children are permitted to join the tour, but parents should take responsibility for their safety</li>
             </ul>
-        </section>
-<!--
+        </section> --}}
+
         <section class="itinerary">
             <h3>Tour Itinerary</h3>
             <ul>
-                <li><strong>07:00 PM:</strong> Driver will pick you up from your hotel. Then, drive for about 4-5 hours to Gilimanuk Ferry Port, where you can board the ferry to Java Island. The ferry ride will take around ±1 hour (depending on the weather).</li>
-                <li><strong>12:00 AM:</strong> Arrive at Gilimanuk Ferry Port and be greeted by our guide. You will then take the ferry for approximately an hour to reach Ketapang Ferry Port, where you will be picked up by car and driven to the village of Licin. Continue to the slope of Mount Ijen, passing through plantations and rainforest, taking about an hour from Banyuwangi city.</li>
-                <li><strong>01:00 AM:</strong> Take a coffee break and make preparations for the hike.</li>
-                <li><strong>02:00 AM:</strong> Start the journey led by a local tour guide from Paltuding at an altitude of 1800M ASL. Hike through sandy tracks for about 3.5 km with around a 500-meter elevation gain. The hike from the base camp to the summit will take about 1-2 hours, depending on your fitness level.</li>
-                <li><strong>04:00 AM:</strong> Observe the infamous Ijen Blue Fire. For a better view, walk down to the bottom of the crater's pit. Although the path is basic and rocky, visitors are willing to take the risk for a better view. Extra caution is advised.</li>
-                <li><strong>05:30 AM:</strong> Enjoy the Ijen sunrise and a photo session at the top of the crater. Capture the best view of the sunrise on Java Island. After dawn, enjoy the view of the world’s largest acidic lake, filled with turquoise water and surrounded by the crater’s barrier.</li>
-                <li><strong>07:00 AM:</strong> After enjoying the stunning view of Ijen, return to the vehicle parking area.</li>
-                <li><strong>08:00 AM:</strong> Drive to a local restaurant for breakfast, then head to Ketapang Ferry Port to cross back to Bali (1-hour ferry ride). Once in Bali, it will take about 4-5 hours to reach Denpasar, Ubud, Kuta, or Sanur. Arrival at your final destination will be around 4-5 PM. Tour finishes.</li>
+                <li><strong>08:00 AM - Pick-up:</strong> Participants will be picked up at the agreed meeting point using comfortable local transportation.</li>
+                <li><strong>09:00 AM - Village Introduction:</strong> Arrive at the traditional village, followed by a brief introduction to the history and culture of the village.</li>
+                <li><strong>10:00 AM - Village Tour by Bicycle & Farming Activities:</strong> Participants will explore the village by bicycle. During the tour, they can observe daily activities of the villagers, such as farming, cultivating rice fields, and gardening. Participants will also have the opportunity to try planting rice or picking vegetables.</li>
+                <li><strong>12:00 PM - Traditional Lunch:</strong> Enjoy a traditional village lunch with local dishes such as nasi liwet, urap-urap, sambal terasi, grilled fish, and fresh vegetables. The meal will be served traditionally on banana leaves.</li>
+                <li><strong>01:30 PM - Handicraft Workshop:</strong> Learn how to make traditional village handicrafts, such as bamboo weaving, crafts from coconut leaves, or traditional weaving. Participants can take home their creations as souvenirs.</li>
+                <li><strong>03:00 PM - Nature Exploration & Hidden Waterfall:</strong> Light trekking to a hidden waterfall near the village. Enjoy the beautiful natural scenery and fresh air around the waterfall.</li>
+                <li><strong>05:00 PM - Return to Pick-up Point:</strong> Closing event with a brief farewell from the villagers and a traditional music performance. Participants will then be transported back to the pick-up point.</li>
+                <li><strong>06:00 PM - Arrival at Pick-up Point:</strong> Arrive at the pick-up point, marking the end of the tour.</li>
             </ul>
-        </section> -->
+        </section>
+
+
 
     </div>
 
@@ -281,7 +295,7 @@
             </div>
 
             <div class="footer__rights">
-                <p class="footer__copy">&#169; Ijen Creater Indonesia. All rigths reserved.</p>
+                <p class="footer__copy">&#169; Ijen Creater Indonesia All rigths reserved.</p>
                 <div class="footer__terms">
                     <a href="#" class="footer__terms-link">Terms & Agreements</a>
                     <a href="#" class="footer__terms-link">Privacy Policy</a>
@@ -318,20 +332,23 @@
                 navMenu.classList.remove('show-menu');
             });
         });
+
     //     function redirectToWhatsApp() {
     // // Nomor WhatsApp bisnis dan pesan prateks
     // var phoneNumber = '+6282331489128';
-    // var message = encodeURIComponent('Hello, I want to book the Baluran and Tabuhan trip.');
+    // var message = encodeURIComponent('Hello, I want to book the Village Tour with bicycle.');
 
     // // Buka tautan ke WhatsApp dengan nomor dan pesan prateks
     // window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
 
     function redirectToWhatsApp(phoneNumber) {
     // Pesan prateks
-    var message = encodeURIComponent('Hello, I want to book the Baluran and Tabuhan trip.');
+    var message = encodeURIComponent('Hello, I want to book the Village Tour with bicycle.');
 
     // Buka tautan ke WhatsApp dengan nomor dan pesan prateks
     window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
+
+
 }
         </script>
 
