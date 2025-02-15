@@ -16,7 +16,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::all(); // Retrieve all reviews
+        $reviews = Review::all();
         return response()->view('admin.dashboard', compact('reviews'));
     }
 
@@ -30,7 +30,7 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi data
+
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'email' => 'required|string|max:100',
@@ -40,14 +40,14 @@ class ReviewController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
-        // Menyimpan data ke database
+
         $review = new Review($validated);
         if ($request->hasFile('photo')) {
             $review->photo = $request->file('photo')->store('photos', 'public');
         }
         $review->save();
 
-        // Redirect ke halaman review
+
         return redirect()->route('page.review')->with('success', 'Review berhasil dibuat.');
     }
 
@@ -71,10 +71,9 @@ class ReviewController extends Controller
         ]);
 
         $data = $request->all();
-        $data['updated_by'] = Auth::id(); // Set the updater's ID
+        $data['updated_by'] = Auth::id();
 
         if ($request->hasFile('photo')) {
-            // Delete old photo if exists
             if ($review->photo && file_exists(storage_path('app/public/' . $review->photo))) {
                 unlink(storage_path('app/public/' . $review->photo));
             }
@@ -94,15 +93,15 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review): RedirectResponse
     {
-        // Delete the photo if it exists
+
         if ($review->photo && file_exists(storage_path('app/public/' . $review->photo))) {
             unlink(storage_path('app/public/' . $review->photo));
         }
 
-        // Delete the review
+
         $review->delete();
 
-        // Redirect with a success message
+
         return back()->with('success', 'Review delete successfully.');
     }
 

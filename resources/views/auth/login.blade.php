@@ -11,24 +11,27 @@
             background-image: url('{{ asset('img/1ijen.JPG') }}'); /* Path to your background image */
             background-size: cover;
             background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             margin: 0;
         }
         .login-card {
-            background-color: rgba(255, 255, 255, 0.7); /* Increased transparency for the card */
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly increased transparency for better readability */
             padding: 2rem;
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+        }
+        @media (max-width: 576px) {
+            .login-card {
+                padding: 1rem;
+            }
         }
     </style>
     <title>Login</title>
 </head>
-<body>
-    <div class="login-card w-50">
-        <h1 class="mb-4">Login</h1>
+<body class="d-flex justify-content-center align-items-center">
+    <div class="login-card w-100 w-md-75 w-lg-50">
+        <h1 class="mb-4 text-center">Login</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -52,8 +55,9 @@
                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
-        {{-- <p class="mb-0">
-            <a href="/register" class="text-center">Register a new membership</a> --}}
+        {{-- <p class="mb-0 text-center">
+            <a href="/register" class="text-center">Register a new membership</a>
+        </p> --}}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-mQ93vA8snR3YmJvW/X4wihRIQq5iE2U+pL6cI8N6ekD4t1Q7ihY6u6d6m4Qc9P2" crossorigin="anonymous"></script>
 </body>

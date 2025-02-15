@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="bali.css">
+    @include('page.__js.bali')
     <style>
         /* Add CSS for thicker horizontal lines between sections */
         section {
@@ -319,45 +320,6 @@
 
     <script src="bali.js"></script>
 
-    <script>// Menangani menu toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        const navClose = document.getElementById('nav-close');
-
-        // Menampilkan menu saat tombol toggle diklik
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.add('show-menu');
-            });
-        }
-
-        // Menyembunyikan menu saat tombol close diklik
-        if (navClose) {
-            navClose.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
-            });
-        }
-
-        // Menyembunyikan menu saat link di-klik (opsional)
-        const navLink = document.querySelectorAll('.nav__link');
-        navLink.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
-            });
-        });
-
-
-
-        function redirectToWhatsApp(phoneNumber) {
-    // Pesan prateks
-    var message = encodeURIComponent('Hello, I want to book the Blue Fire Tour from Bali.');
-
-    // Buka tautan ke WhatsApp dengan nomor dan pesan prateks
-    window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
-}
-
-
-        </script>
 
 
 

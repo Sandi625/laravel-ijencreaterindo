@@ -10,7 +10,116 @@
     <link rel="stylesheet" href="review.css">
 
 
+    @include('page.__js.review')
+
+
 </head>
+
+ <style>
+
+/*========== TESTIMONIALS ==========*/
+.testimonials {
+  padding: 3rem 0; /* Konsistensi jarak */
+  background-color: #f4f4f4; /* Warna latar belakang utama */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem; /* Ukuran font */
+  color: #07412a; /* Warna judul */
+  margin-bottom: 2rem;
+}
+
+.testimonials__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials__card {
+  background: #07412a;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut */
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek transisi */
+}
+
+/* Animasi hover untuk kartu testimonial */
+.testimonials__card:hover {
+  transform: translateY(-10px); /* Mengangkat kartu saat hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar */
+}
+
+.testimonials__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.testimonials__image {
+  margin-right: 1rem;
+}
+
+.testimonials__image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials__name {
+  font-weight: 600; /* Font semi-bold */
+  font-size: 1.2rem; /* Ukuran font */
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.testimonials__rating {
+  color: #f39c12; /* Warna bintang */
+}
+
+.star {
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
+}
+
+.testimonials__description {
+  font-size: 1rem; /* Ukuran font */
+  color: #ffffff; /* Warna teks */
+  text-align: center; /* Memusatkan teks secara horizontal */
+  display: flex;
+  align-items: center; /* Memusatkan secara vertikal */
+  justify-content: center; /* Memusatkan secara horizontal */
+  height: 100%; /* Menjamin deskripsi mengisi ruang yang ada */
+}
+
+@media (max-width: 768px) {
+  .testimonials__card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem; /* Ukuran font untuk tampilan lebih kecil */
+  }
+
+  .testimonials__card {
+    width: 100%;
+  }
+}
+
+
+
+
+</style>
 
 <body>
     <header>
@@ -45,45 +154,6 @@
             <div class="nav__close" id="nav-close">&times;</div>
         </ul>
     </nav>
-
-
-
-
-
-
-
-    <section id="testimonial" class="testimonial-section">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                @foreach ($reviews as $review)
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <img src="{{ $review->photo ? asset('storage/' . $review->photo) : 'https://via.placeholder.com/150' }}" alt="{{ $review->name }}">
-                        </div>
-                        <div class="testimonial-content">
-                            <div class="rating">
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <i class="ri-star{{ $review->rating >= $i ? '-fill' : '' }}"></i>
-                                @endfor
-                            </div>
-                            <p>"{{ $review->isi_testimoni }}"</p>
-                            <h3>- {{ $review->name }}</h3>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-
-
-
-
-
-
 
 
     <section id="add-review" class="review-section">
@@ -125,34 +195,50 @@
 
 
 
-    <!-- Add Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 50,
-                },
-            }
-        });
-    </script>
+
+
+
+    <section class="testimonials section">
+        <h2 class="section-title">Testimoni</h2>
+        <div class="bd-container testimonials__container">
+          @foreach ($reviews as $review)
+            <div class="testimonials__card">
+              <div class="testimonials__header">
+                <div class="testimonials__image">
+                  <img src="{{ $review->photo ? asset('storage/' . $review->photo) : 'https://via.placeholder.com/100' }}" alt="{{ $review->name }}">
+                </div>
+                <div>
+                  <div class="testimonials__name">{{ $review->name }}</div>
+                  <div class="testimonials__rating">
+                    @for ($i = 1; $i <= 5; $i++)
+                      <span class="star">{{ $i <= $review->rating ? '★' : '☆' }}</span>
+                    @endfor
+                  </div>
+                </div>
+              </div>
+              <p class="testimonials__description">
+                "{{ $review->isi_testimoni }}"
+              </p>
+            </div>
+          @endforeach
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Add Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -160,57 +246,7 @@
 
 
     <!-- Add Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 50,
-                },
-            }
-        });
-
-        var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-        },
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-        },
-    }
-});
-
-    </script>
 
     <!-- Add Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -326,61 +362,7 @@
 
     <script src="bali.js"></script>
 
-    <script>// Menangani menu toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        const navClose = document.getElementById('nav-close');
 
-        // Menampilkan menu saat tombol toggle diklik
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.add('show-menu');
-            });
-        }
-
-        // Menyembunyikan menu saat tombol close diklik
-        if (navClose) {
-            navClose.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
-            });
-        }
-
-        // Menyembunyikan menu saat link di-klik (opsional)
-        const navLink = document.querySelectorAll('.nav__link');
-        navLink.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
-            });
-        });
-
-
-
-        document.getElementById('review-form').addEventListener('submit', function(event) {
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let rating = document.getElementById('rating').value;
-    let review = document.getElementById('review').value;
-
-    if (!name || !email || !rating || !review) {
-        event.preventDefault();
-        alert('Please fill in all the fields.');
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
-});
-
-
-        </script>
 
 </body>
 

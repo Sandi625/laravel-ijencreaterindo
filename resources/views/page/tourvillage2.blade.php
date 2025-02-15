@@ -9,6 +9,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('village2.css') }}">
 
+
+    @include('page.__js.tourvillage2')
+
     <style>
         /* Add CSS for thicker horizontal lines between sections */
         section {
@@ -306,7 +309,7 @@
 
     <script src="bali.js"></script>
 
-    <script>// Menangani menu toggle
+    {{-- <script>// Menangani menu toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         const navClose = document.getElementById('nav-close');
@@ -338,8 +341,7 @@
     // var phoneNumber = '+6282331489128';
     // var message = encodeURIComponent('Hello, I want to book the Village Tour with bicycle.');
 
-    // // Buka tautan ke WhatsApp dengan nomor dan pesan prateks
-    // window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
+
 
     function redirectToWhatsApp(phoneNumber) {
     // Pesan prateks
@@ -350,7 +352,7 @@
 
 
 }
-        </script>
+        </script> --}}
 
 </body>
 

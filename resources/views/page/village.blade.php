@@ -9,6 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('village.css') }}">
 
+    @include('page.__js.village')
+
     <style>
         /* Add CSS for thicker horizontal lines between sections */
         section {
@@ -303,7 +305,7 @@
 
     <script src="bali.js"></script>
 
-    <script>// Menangani menu toggle
+    {{-- <script>// Menangani menu toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         const navClose = document.getElementById('nav-close');
@@ -337,7 +339,7 @@
     // Buka tautan ke WhatsApp dengan nomor dan pesan prateks
     window.open('https://wa.me/' + phoneNumber + '?text=' + message, '_blank');
 }
-        </script>
+        </script> --}}
 
 </body>
 

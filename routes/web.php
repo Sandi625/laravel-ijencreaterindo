@@ -8,6 +8,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\Admin\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,14 +111,6 @@ Route::get('/admin/dashboard', [ReviewController::class, 'index'])->name('admin.
 Route::get('/admin/dashboard', [ReviewController::class, 'index'])->name('admin.dashboard');
 
 
-
-
-
-
-
-
-
-
 // Login Routes
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 // Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -124,13 +118,7 @@ Route::get('/admin/dashboard', [ReviewController::class, 'index'])->name('admin.
 
 
 Route::delete('/reviews/{review}', [TestimonialController::class, 'destroy'])->name('reviews.destroy');
-
-
-
 // Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-
-
-
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -144,3 +132,12 @@ Route::get('/home', function(){
 
 Route::get('/admin', [AdminController::class, 'index']);
 Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+
+
+
+// Baru
+
+Route::get('/dashboard',[DashboardController::class,'indexPage']);
+
+
+

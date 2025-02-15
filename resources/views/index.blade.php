@@ -664,7 +664,9 @@
     <script src="assets/js/swiper-bundle.min.js"></script>
 
     <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}?v={{ time() }}"></script>
+
+
 </body>
 
 </html>

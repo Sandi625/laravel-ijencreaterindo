@@ -21,10 +21,10 @@ class TestimonialController extends Controller
 
      public function index()
     {
-        // Ambil semua review dengan status true
+
         $reviews = DB::table('reviews')->where('status', 1)->get();
 
-        // Kirimkan data reviews ke view 'page.review'
+
         return view('page.review', ['reviews' => $reviews]);
     }
 
@@ -50,9 +50,9 @@ class TestimonialController extends Controller
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->except('photo'); // Exclude 'photo' for conditional handling
+        $data = $request->except('photo');
 
-        $data['created_by'] = Auth::id(); // Set the creator's ID
+        $data['created_by'] = Auth::id();
 
         if ($request->hasFile('photo')) {
             $data['photo'] = $request->file('photo')->store('photos', 'public');
@@ -84,10 +84,10 @@ class TestimonialController extends Controller
         ]);
 
         $data = $request->all();
-        $data['updated_by'] = Auth::id(); // Set the updater's ID
+        $data['updated_by'] = Auth::id();
 
         if ($request->hasFile('photo')) {
-            // Delete old photo if exists
+
             if ($review->photo && file_exists(storage_path('app/public/' . $review->photo))) {
                 unlink(storage_path('app/public/' . $review->photo));
             }
@@ -107,7 +107,7 @@ class TestimonialController extends Controller
      */
     public function destroy(Review $review): RedirectResponse
     {
-        // Delete the photo if exists
+
         if ($review->photo && file_exists(storage_path('app/public/' . $review->photo))) {
             unlink(storage_path('app/public/' . $review->photo));
         }
